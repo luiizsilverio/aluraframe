@@ -4,13 +4,15 @@ class Negociacao {
   #valor = 0.0;
 
   constructor(data, quantidade, valor) {
-    this.#data = data;
+    this.#data = new Date(data);
     this.#quantidade = quantidade;
     this.#valor = valor;
   }
 
   get data() {
-    return this.#data;
+    const newDate = new Date(this.#data)
+    // return this.#data;
+    return newDate;
   }
 
   get quantidade() {
