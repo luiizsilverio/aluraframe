@@ -33,7 +33,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Aplicação em Javascript que permite cadastrar negociações. Seu ponto forte é a prática de vários conceitos de orientação a objetos, utilizando a estrutura MVC.
 <br />
-<br />
 
 
 ## :memo: Licença
