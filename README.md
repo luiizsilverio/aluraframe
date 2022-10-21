@@ -7,7 +7,6 @@ Aplicação desenvolvida em Javascript durante o curso <a href="https://cursos.a
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -29,7 +28,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - JavaScript
 - Bootstrap
 <br />
-<br />
 
 ## 💻 Projeto
 
@@ -37,11 +35,6 @@ Aplicação em Javascript que permite cadastrar negociações. Seu ponto forte �
 <br />
 <br />
 
-## 🔖 Layout
-
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/gpqavL469k0pPUGOmAQEM9/Explorer-Lab-%2301/duplicate). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
-<br />
-<br />
 
 ## :memo: Licença
 
