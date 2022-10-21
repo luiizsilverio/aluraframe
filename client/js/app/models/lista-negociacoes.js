@@ -9,4 +9,7 @@ class ListaNegociacoes {
     return [...this.#negociacoes];
   }
 
+  esvazia() {
+    this.#negociacoes = [];
+  }
 }

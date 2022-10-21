@@ -34,6 +34,14 @@ class NegociacaoController {
     this.#limpaFormulario();
   }
 
+  apaga() {
+    this.#listaNegociacoes.esvazia();
+    this.#negociacoesView.update(this.#listaNegociacoes);
+    this.#mensagem.texto = 'Lista de negociações apagada com sucesso';
+    this.#mensagemView.update(this.#mensagem);
+    this.#limpaFormulario();
+  }
+
   #criaNegociacao() {
     let data = this.#inputData.value.split("-");
 
