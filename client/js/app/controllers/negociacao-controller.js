@@ -13,9 +13,27 @@ class NegociacaoController {
     this.#inputQuantidade = $('#quantidade');
     this.#inputValor = $('#valor');
 
-    this.#listaNegociacoes = new ListaNegociacoes((model) => 
-      this.#negociacoesView.update(model)
-    );    
+    let self = this;
+
+    // Proxies são objetos que encapsulam outros, como "cascas"
+    this.#listaNegociacoes = new Proxy(new ListaNegociacoes(), {
+
+      // target é o objeto real que é encapsulado pelo proxy
+      // prop é a propriedade em si, que está sendo lida nesse momento
+      // receiver é a referência ao próprio proxy
+      // Reflect.get realiza a operação no objeto real
+      // além do get, temos o set (target, prop, value, receiver)
+      get (target, prop, receiver) {         
+        if (['adiciona', 'esvazia'].includes(prop) && typeof(target[prop]) == 'function') {
+          return function() {
+            console.log(`interceptando ${prop}`);
+            Reflect.apply(target[prop], target, arguments);
+            self.#negociacoesView.update(target);
+          }
+        }          
+      }
+
+    });
 
     this.#negociacoesView = new NegociacaoView($('#negociacoes-view'));
     this.#negociacoesView.update(this.#listaNegociacoes);
@@ -27,9 +45,7 @@ class NegociacaoController {
 
   adiciona(event) {    
     event.preventDefault();
-
     let negociacao = this.#criaNegociacao();
-
     this.#listaNegociacoes.adiciona(negociacao);
     // this.#negociacoesView.update(this.#listaNegociacoes);
     this.#mensagem.texto = 'Negociação adicionada com sucesso';
