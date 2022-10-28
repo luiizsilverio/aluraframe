@@ -38,6 +38,21 @@ class NegociacaoController {
     this.#limpaFormulario();
   }
 
+  importa() {
+    let service = new NegociacaoService();
+    
+    service.obterNegociacoesDaSemana((erro, negociacoes) => {
+      // conceito de Error-first Callback, ou errorback
+      if (erro) {
+        this.#mensagem.texto = erro;
+        return;
+      }
+      
+      negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao));
+      this.#mensagem.texto = 'Negociações importadas com sucesso';
+    });
+  }
+
   apaga() {
     this.#listaNegociacoes.esvazia();
     this.#mensagem.texto = 'Lista de negociações apagada com sucesso';
@@ -60,4 +75,5 @@ class NegociacaoController {
     this.#inputValor.value = 0.0;
     this.#inputData.focus();
   }
+  
 }
