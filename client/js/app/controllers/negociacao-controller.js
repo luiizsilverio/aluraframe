@@ -18,7 +18,7 @@ class NegociacaoController {
     this.#listaNegociacoes = new Bind(
       new ListaNegociacoes(), 
       this.#negociacoesView,
-      'adiciona', 'esvazia',
+      'adiciona', 'esvazia', 'ordena'
     )
 
     this.#mensagemView = new MensagemView($('#mensagem-view'));
@@ -57,7 +57,7 @@ class NegociacaoController {
 
 
 
-    /*
+  /* Método 2---
     service.obterNegociacoesDaSemana()
       .then((negociacoes) => {
         negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao))
@@ -79,9 +79,8 @@ class NegociacaoController {
       })
       .catch((erro) => this.#mensagem.texto = erro);
 
-
     
-/*    
+/*  Método 3---
     service.obterNegociacoesDaSemana((erro, negociacoes) => {
       // conceito de Error-first Callback, ou errorback
       if (erro) {
@@ -124,6 +123,10 @@ class NegociacaoController {
     this.#limpaFormulario();
   }
 
+  ordena(coluna) {
+    this.#listaNegociacoes.ordena(coluna);
+  }
+
   #criaNegociacao() {
     let data = this.#inputData.value.split("-");
 
@@ -140,5 +143,7 @@ class NegociacaoController {
     this.#inputValor.value = 0.0;
     this.#inputData.focus();
   }
+
+
   
 }

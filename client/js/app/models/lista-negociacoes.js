@@ -2,9 +2,7 @@ class ListaNegociacoes {
   #negociacoes = [];
   #contexto;
 
-  constructor(callback) {    
-
-  }
+  // constructor(callback) {}
 
   adiciona(negociacao) {
     this.#negociacoes.push(negociacao);
@@ -16,5 +14,9 @@ class ListaNegociacoes {
 
   esvazia() {
     this.#negociacoes = [];
+  }
+
+  ordena(coluna) {
+    this.#negociacoes.sort((a, b) => a[coluna] - b[coluna])  // ordem crescente
   }
 }
