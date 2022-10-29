@@ -52,4 +52,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by ![Luiiz](https://github.com/luiizsilverio)
+Feito com ♥ by [Luiiz](https://github.com/luiizsilverio)
