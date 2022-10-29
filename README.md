@@ -7,6 +7,7 @@ Aplicação desenvolvida em Javascript durante o curso <a href="https://cursos.a
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#car-Iniciando-a-aplicação">Iniciando a aplicação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -32,6 +33,18 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Aplicação em Javascript que permite cadastrar negociações. Seu ponto forte é a prática de vários conceitos de orientação a objetos, utilizando a estrutura MVC.
 <br />
+
+
+## :car: Iniciando a aplicação
+Baixe o repositório com git clone e entre na pasta do projeto.
+```bash
+$ git clone https://github.com/luiizsilverio/aluraframe
+$ npm install
+
+# Inicie o servidor
+$ cd server
+$ npm run start
+```
 
 
 ## :memo: Licença
