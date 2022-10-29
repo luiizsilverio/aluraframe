@@ -40,7 +40,48 @@ class NegociacaoController {
 
   importa() {
     let service = new NegociacaoService();
+
+    Promise.all([
+      service.obterNegociacoesDaSemana(),
+      service.obterNegociacoesDaSemanaAnterior(),
+      service.obterNegociacoesDaSemanaRetrasada(),
+    ])
+    .then((negociacoes) => {
+      negociacoes
+        .flat()
+        .forEach(neg => this.#listaNegociacoes.adiciona(neg));
+        
+      this.#mensagem.texto = 'Negociações importadas com sucesso';
+    })
+    .catch((erro) => this.#mensagem.texto = erro);
+
+
+
+    /*
+    service.obterNegociacoesDaSemana()
+      .then((negociacoes) => {
+        negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao))
+        this.#mensagem.texto = 'Negociações importadas com sucesso';
+      })
+      .catch((erro) => this.#mensagem.texto = erro);
+
+    service.obterNegociacoesDaSemanaRetrasada()
+      .then((negociacoes) => {
+        negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao))
+        this.#mensagem.texto = 'Negociações importadas com sucesso';
+      })
+      .catch((erro) => this.#mensagem.texto = erro);
+
+    service.obterNegociacoesDaSemanaAnterior()
+      .then((negociacoes) => {
+        negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao))
+        this.#mensagem.texto = 'Negociações importadas com sucesso';
+      })
+      .catch((erro) => this.#mensagem.texto = erro);
+
+
     
+/*    
     service.obterNegociacoesDaSemana((erro, negociacoes) => {
       // conceito de Error-first Callback, ou errorback
       if (erro) {
@@ -50,7 +91,31 @@ class NegociacaoController {
       
       negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao));
       this.#mensagem.texto = 'Negociações importadas com sucesso';
+    })
+
+    service.obterNegociacoesDaSemanaAnterior((erro, negociacoes) => {
+      // conceito de Error-first Callback, ou errorback
+      if (erro) {
+        this.#mensagem.texto = erro;
+        return;
+      }
+      
+      negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao));
+      this.#mensagem.texto = 'Negociações importadas com sucesso';
     });
+
+    service.obterNegociacoesDaSemanaRetrasada((erro, negociacoes) => {
+      // conceito de Error-first Callback, ou errorback
+      if (erro) {
+        this.#mensagem.texto = erro;
+        return;
+      }
+      
+      negociacoes.forEach(negociacao => this.#listaNegociacoes.adiciona(negociacao));
+      this.#mensagem.texto = 'Negociações importadas com sucesso';
+    });
+*/
+
   }
 
   apaga() {
