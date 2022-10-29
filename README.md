@@ -38,10 +38,10 @@ Aplicação em Javascript que permite cadastrar negociações. Seu ponto forte �
 Baixe o repositório com git clone e entre na pasta do projeto.
 ```bash
 $ git clone https://github.com/luiizsilverio/aluraframe
+$ cd server
 $ npm install
 
 # Inicie o servidor
-$ cd server
 $ npm run start
 ```
 
